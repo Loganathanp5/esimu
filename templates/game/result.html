@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card result-shell" id="result-shell" data-session-id="{{ session_id }}">
+  <p class="eyebrow">Your verdict is in</p>
+  <h1 id="ending-title">Calculating...</h1>
+  <div class="score">Score: <span id="final-score">--</span></div>
+  <p class="subtitle" id="ending-description"></p>
+
+  <section class="result-grid">
+    <article>
+      <h3>Final Stats</h3>
+      <ul class="stat-list" id="stats-list"></ul>
+    </article>
+    <article>
+      <h3>Achievements</h3>
+      <ul class="stat-list" id="achievements-list"></ul>
+    </article>
+  </section>
+
+  <div class="action-row">
+    <a class="btn" href="/">Home</a>
+    <a class="btn" id="retry-link" href="/">Play Again</a>
+    <button class="btn btn-primary" id="share-btn">Copy Share Text</button>
+  </div>
+</section>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/result.js"></script>
+{% endblock %}

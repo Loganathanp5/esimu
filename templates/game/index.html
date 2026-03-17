@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero card">
+  <p class="eyebrow">Interactive story game</p>
+  <h1>Embarrassment Simulator</h1>
+  <p class="subtitle">How awkward can you really get?</p>
+  <p class="intro">You are about to relive social disasters. Confidence goes up, awkwardness never forgets.</p>
+
+  <div class="toggle-row">
+    <label class="toggle-item">
+      <input type="checkbox" id="timer-mode" />
+      <span>Timer mode (30s)</span>
+    </label>
+    <label class="toggle-item">
+      <input type="checkbox" id="random-mode" checked />
+      <span>Random mode</span>
+    </label>
+  </div>
+
+  <button id="start-btn" class="btn btn-primary">Enter The Cringe Zone</button>
+</section>
+
+<section class="card mini-grid">
+  <article>
+    <h3>Confidence</h3>
+    <p>Starts at 50. Smart recovery boosts it.</p>
+  </article>
+  <article>
+    <h3>Awkwardness</h3>
+    <p>Starts at 0. It only goes up.</p>
+  </article>
+  <article>
+    <h3>Cringe Meter</h3>
+    <p>Awkwardness + (100 - Confidence).</p>
+  </article>
+</section>
+
+<script src="/static/js/api.js"></script>
+<script>
+  const startBtn = document.getElementById('start-btn');
+  startBtn.addEventListener('click', async () => {
+    startBtn.disabled = true;
+    startBtn.textContent = 'Starting...';
+    try {
+      const timer_mode = document.getElementById('timer-mode').checked;
+      const random_mode = document.getElementById('random-mode').checked;
+      const payload = await apiStartGame({ timer_mode, random_mode });
+      sessionStorage.setItem('emb_session_id', payload.session_id);
+      sessionStorage.setItem('emb_bootstrap', JSON.stringify(payload));
+      window.location.href = '/game/';
+    } catch (err) {
+      alert(err.message || 'Failed to start game');
+      startBtn.disabled = false;
+      startBtn.textContent = 'Enter The Cringe Zone';
+    }
+  });
+</script>
+{% endblock %}

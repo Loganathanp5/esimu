@@ -1,0 +1,32 @@
+h1, h2, h3 {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800; }
+h2 { font-size: clamp(1.4rem, 2.6vw, 2rem); font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+
+p, li, button, label, span, a {
+  font-family: 'Inter', sans-serif;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin: 0.4rem 0 1rem;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-style: italic;
+  color: #f7b4c8;
+}

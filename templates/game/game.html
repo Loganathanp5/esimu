@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card game-shell" id="game-shell">
+  <header class="hud">
+    <div>
+      <div class="progress-label" id="progress-label">Progress 1/10</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <div id="timer-pill" class="timer hidden">30s</div>
+  </header>
+
+  <article class="scenario">
+    <p class="context" id="scenario-context"></p>
+    <h2 id="scenario-title">Loading scenario...</h2>
+    <p id="scenario-description"></p>
+  </article>
+
+  <section class="choices" id="choices"></section>
+
+  <section class="outcome hidden" id="outcome-box">
+    <h3>Outcome</h3>
+    <p id="outcome-text"></p>
+    <p class="mono" id="inner-monologue"></p>
+    <p id="witness-reaction"></p>
+    <button class="btn" id="continue-btn">Continue</button>
+  </section>
+
+  <section class="meters">
+    <div class="meter-row"><span>Confidence</span><span id="confidence-value">50</span></div>
+    <div class="bar"><div id="confidence-bar" class="bar-fill cool"></div></div>
+
+    <div class="meter-row"><span>Awkwardness</span><span id="awkwardness-value">0</span></div>
+    <div class="bar"><div id="awkwardness-bar" class="bar-fill cringe"></div></div>
+
+    <div class="meter-row"><span>Cringe-O-Meter</span><span id="emb-value">50</span></div>
+    <div class="bar"><div id="emb-bar" class="bar-fill chaos"></div></div>
+  </section>
+</section>
+
+<script src="/static/js/api.js"></script>
+<script src="/static/js/app.js"></script>
+{% endblock %}

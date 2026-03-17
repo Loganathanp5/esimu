@@ -1,0 +1,45 @@
+:root {
+  --bg-primary: #080910;
+  --bg-secondary: rgba(22, 24, 41, 0.78);
+  --bg-tertiary: #151932;
+  --neon-cyan: #00d5ff;
+  --neon-magenta: #ff2f92;
+  --neon-orange: #ff7a3d;
+  --text-main: #eef2ff;
+  --text-muted: #a7afcb;
+  --ok: #3bf8bd;
+  --danger: #ff576d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 213, 255, 0.18), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(255, 47, 146, 0.16), transparent 32%),
+    linear-gradient(135deg, #05060d 0%, #0d1020 60%, #11152a 100%);
+}
+
+.page-wrap {
+  width: min(980px, 92vw);
+  margin: 2.2rem auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.bg-glow {
+  position: fixed;
+  inset: -30vmax;
+  pointer-events: none;
+  background: conic-gradient(from 120deg, rgba(255, 47, 146, 0.08), rgba(0, 213, 255, 0.06), rgba(255, 122, 61, 0.08));
+  filter: blur(80px);
+}
+
+.hidden { display: none !important; }
+
+@media (max-width: 640px) {
+  .page-wrap { margin-top: 1.2rem; }
+}
