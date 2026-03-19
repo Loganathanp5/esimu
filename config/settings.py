@@ -100,16 +100,15 @@ LOGGING = {
         },
     },
     'handlers': {
-        'error_file': {
+        'console': {
             'level': 'ERROR',
-            'class': 'logging.FileHandler',
-            'filename': BASE_DIR / 'errors.log',
+            'class': 'logging.StreamHandler',
             'formatter': 'detailed',
         },
     },
     'loggers': {
         'django': {
-            'handlers': ['error_file'],
+            'handlers': ['console'],
             'level': 'ERROR',
             'propagate': True,
         },

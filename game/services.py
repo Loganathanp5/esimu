@@ -1,6 +1,7 @@
 import random
 from datetime import timedelta
 
+from django.db import DatabaseError
 from django.db import transaction
 from django.utils import timezone
 
@@ -24,7 +25,12 @@ def clamp(value: int, low: int, high: int) -> int:
 
 
 def get_scenario_pool(random_mode: bool, total: int = 10):
-    scenario_ids = list(Scenario.objects.values_list('id', flat=True))
+    try:
+        scenario_ids = list(Scenario.objects.values_list('id', flat=True))
+    except DatabaseError as exc:
+        raise ValueError(
+            'Database is not ready. Run migrations and seed data (python manage.py migrate && python manage.py seed_data).'
+        ) from exc
     if random_mode:
         random.shuffle(scenario_ids)
     return scenario_ids[:total]
