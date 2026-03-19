@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block content %}
 <section class="card result-shell" id="result-shell" data-session-id="{{ session_id }}">
   <p class="eyebrow">Your verdict is in</p>
@@ -24,6 +25,6 @@
   </div>
 </section>
 
-<script src="/static/js/api.js"></script>
-<script src="/static/js/result.js"></script>
+<script src="{% static 'js/api.js' %}"></script>
+<script src="{% static 'js/result.js' %}"></script>
 {% endblock %}

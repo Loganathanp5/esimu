@@ -35,7 +35,8 @@
   </article>
 </section>
 
-<script src="/static/js/api.js"></script>
+{% load static %}
+<script src="{% static 'js/api.js' %}"></script>
 <script>
   const startBtn = document.getElementById('start-btn');
   startBtn.addEventListener('click', async () => {
